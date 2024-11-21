@@ -3,22 +3,39 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class AddEventModal extends JDialog
 {
 
-    public AddEventModal()
+    JPanel beginPanel, endPanel, textPanel;
+    JLabel nameLabel, locationLabel;
+    JTextField name, location;
+    JSpinner beginHourSpinner;
+    JSpinner beginMinuteSpinner;
+    JSpinner beginPeriodSpinner;
+    JSpinner endHourSpinner;
+    JSpinner endMinuteSpinner;
+    JSpinner endPeriodSpinner;
+    JComboBox<String> eventType;
+    JButton submit;
+    LocalDate date;
+    Event event;
+
+    public AddEventModal(LocalDate date)
     {
+        this.date = date;
         setTitle("Add Event");
         setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
-        setVisible(true);
         setSize(new Dimension(500,500));
         setLocation(ScreenSize.getCenter().x - 250, ScreenSize.getCenter().y - 250 );
 
-        JPanel beginPanel = new JPanel();
-        JPanel endPanel = new JPanel();
-        JPanel textPanel = new JPanel();
+        beginPanel = new JPanel();
+        endPanel = new JPanel();
+        textPanel = new JPanel();
 
         JLabel nameLabel = new JLabel("Name: ");
         JTextField name = new JTextField();
@@ -31,13 +48,13 @@ public class AddEventModal extends JDialog
         textPanel.add(locationLabel);
         textPanel.add(location);
 
-        JSpinner beginHourSpinner = new JSpinner(new SpinnerNumberModel(12, 1, 12, 1 ));
-        JSpinner beginMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
-        JSpinner beginPeriodSpinner = new JSpinner(new SpinnerListModel(new String[]{"AM", "PM"}));
+        beginHourSpinner = new JSpinner(new SpinnerNumberModel(12, 1, 12, 1 ));
+        beginMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
+        beginPeriodSpinner = new JSpinner(new SpinnerListModel(new String[]{"AM", "PM"}));
 
-        JSpinner endHourSpinner = new JSpinner(new SpinnerNumberModel(12, 1, 12, 1 ));
-        JSpinner endMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
-        JSpinner endPeriodSpinner = new JSpinner(new SpinnerListModel(new String[]{"AM", "PM"}));
+        endHourSpinner = new JSpinner(new SpinnerNumberModel(12, 1, 12, 1 ));
+        endMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
+        endPeriodSpinner = new JSpinner(new SpinnerListModel(new String[]{"AM", "PM"}));
 
         beginPanel.add(new JLabel("Beginning time: "));
         beginPanel.add(beginHourSpinner);
@@ -53,26 +70,42 @@ public class AddEventModal extends JDialog
         endPanel.add(new JLabel("  "));
         endPanel.add(endPeriodSpinner);
 
+        eventType = new JComboBox<String>(new String[] {"Meeting", "Deadline"});
+
+        submit = new JButton("Submit");
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LocalDateTime dt;
+                LocalTime time = LocalTime.of((int) beginHourSpinner.getValue(), (int) beginMinuteSpinner.getValue());
+                dt = LocalDateTime.of(date, time);
+                if (eventType.getSelectedItem() == "Meeting")
+                {
+                    event = EventFactory.createEvent(name.getText(), location.getText(), dt);
+                }
+                else{
+                    event =  EventFactory.createEvent(name.getText(), dt);
+                }
+
+                dispose();
+            }
+        });
 
         add(textPanel);
         add(beginPanel);
         add(endPanel);
-
-        add(new JComboBox<String>(new String[] {"Meeting", "Deadline"}));
-
-        JButton submit = new JButton("Submit");
-
-        submit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
+        add(eventType);
+        add(submit);
         revalidate();
         repaint();
-
-
     }
 
+    public Event getData()
+    {
+        if (event!= null)
+            return event;
+        else {
+            throw new RuntimeException("event is null!");
+        }
+    }
 }

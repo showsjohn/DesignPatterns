@@ -1,7 +1,22 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class EventFactory {
 
-    public Event createEvent(Event event)
+    public static Event createEvent(String name, String location, LocalDateTime dateTime)
     {
-        return null;
+        Meeting meeting = new Meeting(location);
+        meeting.setDateTime(dateTime);
+        meeting.setName(name);
+        return meeting;
+    }
+
+    public static Event createEvent(String name, LocalDateTime dateTime)
+    {
+        Deadline deadline = new Deadline();
+        deadline.setName(name);
+        deadline.setDateTime(dateTime);
+
+        return deadline;
     }
 }

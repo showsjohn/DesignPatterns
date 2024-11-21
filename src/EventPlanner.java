@@ -10,7 +10,7 @@ public class EventPlanner
 
 
         EventListPanel eventListPanel = new EventListPanel(1920-1480, 1180);
-        CalendarPanel calendarPanel = new CalendarPanel(1440, 1180, eventListPanel);
+        CalendarPanel calendarPanel = new CalendarPanel(1440, 1180);
 
 
         jframe.setResizable(false);

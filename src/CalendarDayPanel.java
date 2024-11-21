@@ -14,6 +14,8 @@ public class CalendarDayPanel extends JPanel
     public CalendarDayPanel(int width, int height, int day, LocalDate date)
     {
         listeners = new ArrayList<>();
+        addListener(EventListPanel.getInstance());
+
         this.day = day;
         this.currentDate = date;
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -40,6 +42,11 @@ public class CalendarDayPanel extends JPanel
         return events;
     }
 
+    public void addEvent(Event event)
+    {
+        events.add(event);
+    }
+
     public void addListener(CalendarDayListener listener)
     {
         listeners.add(listener);
@@ -49,12 +56,9 @@ public class CalendarDayPanel extends JPanel
     {
         for (CalendarDayListener listener: listeners)
         {
-            listener.onDaySelected(events, currentDate);
+            if (listener != null)
+                listener.onDaySelected(events, currentDate, this);
         }
     }
-
-
-
-
 
 }

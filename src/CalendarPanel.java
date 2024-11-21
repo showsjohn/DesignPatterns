@@ -21,7 +21,7 @@ public class CalendarPanel extends JPanel
     JButton previousMonth, nextMonth;
     Months month = Months.November;
 
-    public CalendarPanel(int width, int height, EventListPanel eventListPanel)
+    public CalendarPanel(int width, int height)
     {
         setLayout(new BorderLayout());
         setBorder(new LineBorder(new Color(224, 224, 224), 10));
@@ -79,7 +79,7 @@ public class CalendarPanel extends JPanel
                 }
                 else
                 {
-                    currentMonthPanel = new MonthPanel(width, height, firstOfMonth, currentMonth, eventListPanel);
+                    currentMonthPanel = new MonthPanel(width, height, firstOfMonth, currentMonth);
                     addMonth(currentMonthPanel);
                 }
 
@@ -99,7 +99,7 @@ public class CalendarPanel extends JPanel
 
         monthPanelHolder = new JPanel();
         monthPanelHolder.setLayout(new BorderLayout());
-        currentMonthPanel = new MonthPanel(width, height, firstOfMonth, currentMonth, eventListPanel);
+        currentMonthPanel = new MonthPanel(width, height, firstOfMonth, currentMonth);
         monthPanelHolder.add(currentMonthPanel, BorderLayout.CENTER);
 
         addMonth(currentMonthPanel);

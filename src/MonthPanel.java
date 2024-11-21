@@ -11,7 +11,7 @@ public class MonthPanel extends JPanel
     final int CHILD_COMPONENT_WIDTH = 200;
     ArrayList<CalendarDayPanel> days;
     EventListPanel eventListPanel;
-    public MonthPanel(int width, int height, int firstOfMonth, LocalDate currentMonth, EventListPanel eventListPanel)
+    public MonthPanel(int width, int height, int firstOfMonth, LocalDate currentMonth)
     {
         this.eventListPanel = eventListPanel;
         days = new ArrayList<>();

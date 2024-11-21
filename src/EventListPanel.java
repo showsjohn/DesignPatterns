@@ -13,9 +13,12 @@ public class EventListPanel extends JPanel implements CalendarDayListener
     JLabel dateLabel;
     JButton addEvent;
     CalendarDayPanel currentlySelectedDay;
+    LocalDate date;
+    public static EventListPanel instance;
 
     public EventListPanel(int width, int height)
     {
+        instance = this;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new LineBorder(new Color(224, 224, 224), 10));
         setPreferredSize(new Dimension(width, height));
@@ -32,8 +35,15 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         addEvent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddEventModal modal = new AddEventModal();
+                AddEventModal modal = new AddEventModal(date);
                 modal.setModal(true);
+                modal.setVisible(true);
+                Event event = modal.getData();
+                currentlySelectedDay.addEvent(event);
+                add(new JLabel(event.getName()));
+                add(new JLabel(event.getDateTime().toString()));
+                revalidate();
+                repaint();
             }
         });
 
@@ -41,24 +51,21 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         add(Box.createRigidArea(new Dimension(-1,30)));
         add(addEvent);
         add(eventPanel);
-
-
-
-
     }
 
-    public void setCurrentlySelectedDay(CalendarDayPanel selectedDay)
+    public static EventListPanel getInstance()
     {
-        currentlySelectedDay = selectedDay;
+        if (instance == null)
+        {
+            instance = new EventListPanel(ScreenSize.getScreenSize().x, ScreenSize.getScreenSize().y);
+        }
+        return instance;
     }
 
-    public void setDateTitle(String month, String day, int intDay)
+    public void onDaySelected(ArrayList<Event> events, LocalDate date, CalendarDayPanel day)
     {
-
-    }
-
-    public void onDaySelected(ArrayList<Event> events, LocalDate date)
-    {
+        currentlySelectedDay = day;
+        this.date = date;
         eventPanel.removeAll();
 
         dateLabel.setText(date.getDayOfWeek().toString() +" - " + date.getMonth() + " " + date.getDayOfMonth() + ", " + date.getYear());
@@ -68,7 +75,6 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         revalidate();
         repaint();
 
-        System.out.println(date.getMonth() + " " + date.getDayOfMonth() + ", " + date.getYear());
         for (Event event: events)
         {
 
