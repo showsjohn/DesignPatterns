@@ -1,2 +1,5 @@
-public interface Completable {
+public interface Completable
+{
+    void complete();
+    boolean isComplete();
 }

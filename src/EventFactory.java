@@ -1,2 +1,7 @@
-public interface EventFactory {
+public class EventFactory {
+
+    public Event createEvent(Event event)
+    {
+        return null;
+    }
 }

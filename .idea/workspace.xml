@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="" />
+    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddEventModal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarDayListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarDayListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarDayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarDayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Completable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Completable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deadline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FontFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FontFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MonthPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MonthPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Months.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Months.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenSize.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "showsjohn"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/showsjohn/DesignPatterns.git",
+    "accountId": "a77b3219-c5f0-42e9-a054-cfa602ebb4e5"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 1
 }]]></component>
@@ -21,6 +64,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true"
