@@ -14,7 +14,20 @@ public class CalendarDayPanel extends JPanel
 
     public CalendarDayPanel(int width, int height, int day, LocalDate date)
     {
-        eventsPanelHolder = new JPanel();
+        setOpaque(true);
+        setBackground(new Color(255,255,255, 100));
+
+        eventsPanelHolder = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g)
+            {
+                g.setColor( getBackground() );
+                g.fillRect(0, 0, getWidth(), getHeight());
+                super.paintComponent(g);
+            }
+        };
+        eventsPanelHolder.setOpaque(false);
+        eventsPanelHolder.setBackground(new Color(255,255,255, 0));
         listeners = new ArrayList<>();
         addListener(EventListPanel.getInstance());
 
@@ -26,6 +39,7 @@ public class CalendarDayPanel extends JPanel
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         JLabel dayLabel = new JLabel(String.valueOf(day));
+        dayLabel.removeAll();
         dayLabel.setHorizontalAlignment(JLabel.CENTER);
         dayLabel.setAlignmentX(CENTER_ALIGNMENT);
         add(dayLabel);
@@ -37,6 +51,7 @@ public class CalendarDayPanel extends JPanel
                 notifyListenersOnClick();
             }
         });
+
 
     }
 
@@ -97,5 +112,14 @@ public class CalendarDayPanel extends JPanel
                 listener.onDaySelected(events, currentDate, this);
         }
     }
+
+    @Override
+    protected void paintComponent(Graphics g)
+    {
+        g.setColor( getBackground() );
+        g.fillRect(0, 0, getWidth(), getHeight());
+        super.paintComponent(g);
+    }
+
 
 }

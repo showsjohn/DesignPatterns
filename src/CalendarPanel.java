@@ -23,6 +23,8 @@ public class CalendarPanel extends JPanel
 
     public CalendarPanel(int width, int height)
     {
+        setOpaque(false);
+        setBackground(new Color(238, 238, 238, 50));
         setLayout(new BorderLayout());
         setBorder(new LineBorder(new Color(224, 224, 224), 10));
 

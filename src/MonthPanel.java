@@ -1,10 +1,12 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class MonthPanel extends JPanel
 {
+    String month;
     int width, height;
     JPanel CalendarHeader;
     JPanel daysPanel;
@@ -21,7 +23,22 @@ public class MonthPanel extends JPanel
         setLayout(new BorderLayout());
         CalendarHeader = new JPanel();
         CalendarHeader.setLayout(new GridLayout(1, 7));
-        daysPanel = new JPanel();
+
+        System.out.println(currentMonth.getMonth());
+
+        daysPanel = new JPanel() {
+
+            String file = "./images/" + currentMonth.getMonth() + ".jpg";
+            private final Image backgroundImage = new ImageIcon(file).getImage();
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Draw the background image
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+
 
         daysPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 1,2));
         daysPanel.setPreferredSize(new Dimension(width, 1080));
@@ -53,9 +70,12 @@ public class MonthPanel extends JPanel
             firstOfMonth = (firstOfMonth + 7 ) % 7;
 
             for (int j = 0; j < firstOfMonth; j++) {
+
                 JPanel blank = new JPanel();
-                blank.setBackground(new Color(224,224,224));
+                blank.setOpaque(false);
+                blank.setBackground(new Color(255,255,255, 0));
                 blank.setPreferredSize(new Dimension(width/7, 200));
+                blank.setBorder(new LineBorder(Color.darkGray, 2));
                 daysPanel.add(blank);
             }
 

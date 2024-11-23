@@ -27,7 +27,7 @@ public class EventPanel extends JPanel
         JLabel event = new JLabel(eventType);
         JLabel name = new JLabel("Name");
         JLabel time = new JLabel("Date/Time");
-        JLabel duration = new JLabel("Duration");
+        JLabel duration = new JLabel("Location");
         event.setFont(FontFactory.createFont(24));
 
         name.setFont(font);
