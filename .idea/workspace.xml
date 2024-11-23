@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="Fixed labels in EventPanel to correctly display on the right column">
+    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="Added Background images for months">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CalendarDayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarDayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddEventModal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalendarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPlanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MonthPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MonthPanel.java" afterDir="false" />
     </list>
@@ -127,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732342206422</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Background images for months">
+      <option name="closed" value="true" />
+      <created>1732346116702</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732346116702</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -135,7 +144,9 @@
     <MESSAGE value="Further updated AddEventModal's logic" />
     <MESSAGE value="Added support to add events to eventsPanel" />
     <MESSAGE value="Events now show in calendar's day boxes" />
+    <MESSAGE value="Added background images for months" />
     <MESSAGE value="Fixed labels in EventPanel to correctly display on the right column" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed labels in EventPanel to correctly display on the right column" />
+    <MESSAGE value="Added Background images for months" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Background images for months" />
   </component>
 </project>

@@ -24,8 +24,6 @@ public class MonthPanel extends JPanel
         CalendarHeader = new JPanel();
         CalendarHeader.setLayout(new GridLayout(1, 7));
 
-        System.out.println(currentMonth.getMonth());
-
         daysPanel = new JPanel() {
 
             String file = "./images/" + currentMonth.getMonth() + ".jpg";

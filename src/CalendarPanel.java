@@ -72,11 +72,9 @@ public class CalendarPanel extends JPanel
                 month = month.next();
                 currentMonth = currentMonth.plusMonths(1);
                 firstOfMonth = currentMonth.getDayOfWeek().getValue();
-                System.out.println("Index: " + currentMonthIndex);
 
                 if(hasNextMonth())
                 {
-                    System.out.println("Has next month");
                     currentMonthPanel = getNextMonth();
                 }
                 else

@@ -12,14 +12,10 @@ public class AddEventModal extends JDialog
 {
 
     JPanel beginPanel, endPanel, textPanel;
-    JLabel nameLabel, locationLabel;
-    JTextField name, location;
     JSpinner beginHourSpinner;
     JSpinner beginMinuteSpinner;
-    JSpinner beginPeriodSpinner;
     JSpinner endHourSpinner;
     JSpinner endMinuteSpinner;
-    JSpinner endPeriodSpinner;
     JComboBox<String> eventType;
     JButton submit;
     LocalDate date;
@@ -30,8 +26,8 @@ public class AddEventModal extends JDialog
         this.date = date;
         setTitle("Add Event");
         setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
-        setSize(new Dimension(500,500));
-        setLocation(ScreenSize.getCenter().x - 250, ScreenSize.getCenter().y - 250 );
+        setSize(new Dimension(300,275));
+        setLocation(ScreenSize.getCenter().x-150, ScreenSize.getCenter().y - 180 );
 
         beginPanel = new JPanel();
         endPanel = new JPanel();
@@ -48,27 +44,22 @@ public class AddEventModal extends JDialog
         textPanel.add(locationLabel);
         textPanel.add(location);
 
-        beginHourSpinner = new JSpinner(new SpinnerNumberModel(12, 1, 12, 1 ));
+        beginHourSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 23, 1 ));
         beginMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
-        beginPeriodSpinner = new JSpinner(new SpinnerListModel(new String[]{"AM", "PM"}));
-
-        endHourSpinner = new JSpinner(new SpinnerNumberModel(12, 1, 12, 1 ));
+        endHourSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 23, 1 ));
         endMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
-        endPeriodSpinner = new JSpinner(new SpinnerListModel(new String[]{"AM", "PM"}));
 
         beginPanel.add(new JLabel("Beginning time: "));
         beginPanel.add(beginHourSpinner);
         beginPanel.add(new JLabel(" : "));
         beginPanel.add(beginMinuteSpinner);
         beginPanel.add(new JLabel("  "));
-        beginPanel.add(beginPeriodSpinner);
 
         endPanel.add(new JLabel("Ending time: "));
         endPanel.add(endHourSpinner);
         endPanel.add(new JLabel(" : "));
         endPanel.add(endMinuteSpinner);
         endPanel.add(new JLabel("  "));
-        endPanel.add(endPeriodSpinner);
 
         eventType = new JComboBox<String>(new String[] {"Meeting", "Deadline"});
 

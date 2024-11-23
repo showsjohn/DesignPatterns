@@ -22,7 +22,6 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         eventPanelHolder = new JPanel();
         eventPanelHolder.setPreferredSize(new Dimension(width-20, 1000));
 
-        //setLayout(new BoxLayout(this,.Y_AXIS));
         setBorder(new LineBorder(new Color(224, 224, 224), 10));
         setPreferredSize(new Dimension(width, height));
         setMinimumSize(new Dimension(width, height));
@@ -84,11 +83,18 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         {
             EventPanel eventPanel = new EventPanel(event.getClass().toString().split(" ")[1]);
             eventPanel.add(new JLabel(event.getName()));
-            eventPanel.add(new JLabel(event.getDateTime().toString()));
+            String[] time = event.getDateTime().toString().split("T");
+            eventPanel.add(new JLabel(time[0] +" @ " + time[1]));
+            JLabel location = new JLabel();
             if (event instanceof Meeting)
             {
-                eventPanel.add(new JLabel(((Meeting) event).getLocation()));
+                location.setText(((Meeting) event).getLocation());
             }
+            else
+                location.setText("N/A");
+
+            eventPanel.add(location);
+
             eventPanelHolder.add(eventPanel);
         }
     }

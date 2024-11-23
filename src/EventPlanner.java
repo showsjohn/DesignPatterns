@@ -15,7 +15,7 @@ public class EventPlanner
         jframe.add(calendarPanel, BorderLayout.CENTER);
         jframe.add(eventListPanel, BorderLayout.EAST);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jframe.setSize(1920, 1180);
+        jframe.setSize(1920, 1400);
         jframe.setVisible(true);
 
         jframe.revalidate();
