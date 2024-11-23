@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class EventListPanel extends JPanel implements CalendarDayListener
 {
-    EventPanel eventPanel;
+    JPanel eventPanelHolder;
     JLabel dateLabel;
     JButton addEvent;
     CalendarDayPanel currentlySelectedDay;
@@ -19,12 +19,14 @@ public class EventListPanel extends JPanel implements CalendarDayListener
     public EventListPanel(int width, int height)
     {
         instance = this;
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        eventPanelHolder = new JPanel();
+        eventPanelHolder.setPreferredSize(new Dimension(width-20, 1000));
+
+        //setLayout(new BoxLayout(this,.Y_AXIS));
         setBorder(new LineBorder(new Color(224, 224, 224), 10));
         setPreferredSize(new Dimension(width, height));
         setMinimumSize(new Dimension(width, height));
 
-        eventPanel = new EventPanel();
         dateLabel = new JLabel();
 
         addEvent = new JButton("Add Event +");
@@ -40,8 +42,8 @@ public class EventListPanel extends JPanel implements CalendarDayListener
                 modal.setVisible(true);
                 Event event = modal.getData();
                 currentlySelectedDay.addEvent(event);
-                add(new JLabel(event.getName()));
-                add(new JLabel(event.getDateTime().toString()));
+
+                onDaySelected(currentlySelectedDay.getEvents(), currentlySelectedDay.getDate(), currentlySelectedDay);
                 revalidate();
                 repaint();
             }
@@ -50,7 +52,8 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         add(dateLabel);
         add(Box.createRigidArea(new Dimension(-1,30)));
         add(addEvent);
-        add(eventPanel);
+        add(eventPanelHolder);
+
     }
 
     public static EventListPanel getInstance()
@@ -62,11 +65,13 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         return instance;
     }
 
+
+
     public void onDaySelected(ArrayList<Event> events, LocalDate date, CalendarDayPanel day)
     {
         currentlySelectedDay = day;
         this.date = date;
-        eventPanel.removeAll();
+        eventPanelHolder.removeAll();
 
         dateLabel.setText(date.getDayOfWeek().toString() +" - " + date.getMonth() + " " + date.getDayOfMonth() + ", " + date.getYear());
         dateLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -77,13 +82,14 @@ public class EventListPanel extends JPanel implements CalendarDayListener
 
         for (Event event: events)
         {
-
+            EventPanel eventPanel = new EventPanel(event.getClass().toString().split(" ")[1]);
             eventPanel.add(new JLabel(event.getName()));
             eventPanel.add(new JLabel(event.getDateTime().toString()));
             if (event instanceof Meeting)
             {
                 eventPanel.add(new JLabel(((Meeting) event).getLocation()));
             }
+            eventPanelHolder.add(eventPanel);
         }
     }
 }

@@ -42,6 +42,11 @@ public class CalendarDayPanel extends JPanel
         return events;
     }
 
+    public LocalDate getDate()
+    {
+        return currentDate;
+    }
+
     public void addEvent(Event event)
     {
         events.add(event);

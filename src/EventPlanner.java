@@ -9,7 +9,7 @@ public class EventPlanner
         jframe.setLayout(new BorderLayout());
 
 
-        EventListPanel eventListPanel = new EventListPanel(1920-1480, 1180);
+        EventListPanel eventListPanel = new EventListPanel(440, 1180);
         CalendarPanel calendarPanel = new CalendarPanel(1440, 1180);
 
 
