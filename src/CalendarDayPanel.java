@@ -10,9 +10,11 @@ public class CalendarDayPanel extends JPanel
     ArrayList<Event> events;
     LocalDate currentDate;
     int day;
+    JPanel eventsPanelHolder;
 
     public CalendarDayPanel(int width, int height, int day, LocalDate date)
     {
+        eventsPanelHolder = new JPanel();
         listeners = new ArrayList<>();
         addListener(EventListPanel.getInstance());
 
@@ -27,6 +29,7 @@ public class CalendarDayPanel extends JPanel
         dayLabel.setHorizontalAlignment(JLabel.CENTER);
         dayLabel.setAlignmentX(CENTER_ALIGNMENT);
         add(dayLabel);
+        add(eventsPanelHolder);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -50,6 +53,35 @@ public class CalendarDayPanel extends JPanel
     public void addEvent(Event event)
     {
         events.add(event);
+        drawEvents();
+    }
+
+    public void drawEvents()
+    {
+        eventsPanelHolder.removeAll();
+        for (Event event: events)
+        {
+            String eventType = event.getClass().toString().split(" ")[1];
+            Color color;
+            if (eventType.equals("Deadline"))
+            {
+                color = new Color(242, 139, 130);
+            }
+            else if(eventType.equals("Meeting"))
+            {
+                color = new Color(174, 203, 250);
+            }
+            else{
+                color = Color.white;
+            }
+            JPanel eventsHolder = new JPanel();
+            eventsHolder.add(new JLabel(event.getName()));
+            eventsHolder.add(new JLabel(event.dateTime.toString()));
+            eventsHolder.setBackground(color);
+            eventsPanelHolder.add(eventsHolder);
+            revalidate();
+            repaint();
+        }
     }
 
     public void addListener(CalendarDayListener listener)

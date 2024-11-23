@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="Further updated AddEventModal's logic">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="Added support to add events to eventsPanel">
       <change beforePath="$PROJECT_DIR$/src/CalendarDayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarDayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPlanner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,12 +99,21 @@
       <option name="project" value="LOCAL" />
       <updated>1732252995670</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added support to add events to eventsPanel">
+      <option name="closed" value="true" />
+      <created>1732341470124</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732341470124</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated AddEventModal form" />
     <MESSAGE value="Further updated AddEventModal's logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Further updated AddEventModal's logic" />
+    <MESSAGE value="Added support to add events to eventsPanel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added support to add events to eventsPanel" />
   </component>
 </project>
