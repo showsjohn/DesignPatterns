@@ -34,6 +34,8 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         addEvent.setBackground(new Color(13, 110, 253));
         addEvent.setForeground(Color.white);
         addEvent.setFont(FontFactory.createFont(20));
+
+        // button to add new events. It launches the AddEventModal box to get user data for the event.
         addEvent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,6 +58,7 @@ public class EventListPanel extends JPanel implements CalendarDayListener
 
     }
 
+    // static method to insure only one instance of this panel exists and can be accessed anywhere
     public static EventListPanel getInstance()
     {
         if (instance == null)
@@ -67,6 +70,8 @@ public class EventListPanel extends JPanel implements CalendarDayListener
 
 
 
+    // subscriber method for the observer implementation. When a CalendarDayPanel is selected, this method is called.
+    // it gets the event data from the CalendarDayEvent and displays it in the EvenListPanel
     public void onDaySelected(ArrayList<Event> events, LocalDate date, CalendarDayPanel day)
     {
         currentlySelectedDay = day;
@@ -80,6 +85,7 @@ public class EventListPanel extends JPanel implements CalendarDayListener
         revalidate();
         repaint();
 
+        // for every event, draw the event to screen
         for (Event event: events)
         {
             EventPanel eventPanel = new EventPanel(event.getClass().toString().split(" ")[1]);

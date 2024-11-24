@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class EventPlanner
 {
+    //Main GUI method which holds the JFrame class
     public EventPlanner()
     {
         JFrame jframe = new JFrame();

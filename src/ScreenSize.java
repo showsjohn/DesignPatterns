@@ -1,5 +1,6 @@
 import java.awt.*;
 
+// helpful utility class to hold information about the display size
 public class ScreenSize {
     final static Dimension toolkit = Toolkit.getDefaultToolkit().getScreenSize();
 

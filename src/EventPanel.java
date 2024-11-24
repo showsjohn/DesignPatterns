@@ -3,9 +3,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
+// panel to hold an individual event to be displayed in the EvenListPanel section
 public class EventPanel extends JPanel
 {
-
     public EventPanel(String eventType)
     {
         Color color;
