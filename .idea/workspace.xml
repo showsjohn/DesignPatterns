@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="Added Background images for months">
+    <list default="true" id="3f97d5bb-c18c-4bb2-a281-80641a7638df" name="Changes" comment="Changed time format to military time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddEventModal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarDayListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarDayListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarDayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarDayPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalendarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MonthPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MonthPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,15 +54,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -136,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732346116702</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changed time format to military time">
+      <option name="closed" value="true" />
+      <created>1732347763587</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732347763587</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -147,6 +156,8 @@
     <MESSAGE value="Added background images for months" />
     <MESSAGE value="Fixed labels in EventPanel to correctly display on the right column" />
     <MESSAGE value="Added Background images for months" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Background images for months" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="Changed time format to military time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed time format to military time" />
   </component>
 </project>

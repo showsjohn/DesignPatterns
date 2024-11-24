@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+
+// Main class for the program
+// CalendarPanel holds a MonthPanel (which contains all the individual CalendarDayPanels)
+// As well as the controls for changing the month
 public class CalendarPanel extends JPanel
 {
     ArrayList<MonthPanel> monthPanels;
@@ -45,6 +49,7 @@ public class CalendarPanel extends JPanel
         monthPanel.setMinimumSize(new Dimension(width, 100));
         monthPanel.setPreferredSize(new Dimension(width, 100));
 
+        // change month to previous month
         previousMonth = new JButton("<");
         previousMonth.addActionListener(new ActionListener() {
             @Override
@@ -65,6 +70,7 @@ public class CalendarPanel extends JPanel
             }
         });
 
+        // change month to next month
         nextMonth = new JButton(">");
         nextMonth.addActionListener(new ActionListener() {
             @Override
@@ -114,24 +120,29 @@ public class CalendarPanel extends JPanel
         monthPanelHolder.add(month);
     }
 
+    // add new month to list of months
     public void addMonth(MonthPanel month)
     {
         monthPanels.add(month);
         currentMonthIndex++;
     }
 
+    // retrieve the next month in the MonthPanel from the ArrayList
     public MonthPanel getNextMonth()
     {
         currentMonthIndex++;
         return monthPanels.get(currentMonthIndex-1);
     }
 
+    // retrieve the previous MonthPanel from the ArrayList
     public MonthPanel getPreviousMonth()
     {
         currentMonthIndex--;
         return monthPanels.get(currentMonthIndex-1);
     }
 
+
+    // booleans to check if previous or next month is in the ArrayList
     public boolean hasPreviousMonth()
     {
         return (currentMonthIndex - 2) > - 1;

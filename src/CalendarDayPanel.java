@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+// class for each individual calendar day which holds the Event data for that specific date
 public class CalendarDayPanel extends JPanel
 {
     ArrayList<CalendarDayListener> listeners;
@@ -19,13 +20,14 @@ public class CalendarDayPanel extends JPanel
 
         eventsPanelHolder = new JPanel(){
             @Override
-            protected void paintComponent(Graphics g)
+            protected void paintComponent(Graphics g) //override paintComponent to allow transparency
             {
                 g.setColor( getBackground() );
                 g.fillRect(0, 0, getWidth(), getHeight());
                 super.paintComponent(g);
             }
         };
+
         eventsPanelHolder.setOpaque(false);
         eventsPanelHolder.setBackground(new Color(255,255,255, 0));
         listeners = new ArrayList<>();
@@ -33,7 +35,7 @@ public class CalendarDayPanel extends JPanel
 
         this.day = day;
         this.currentDate = date;
-        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // allow cursor to be pointer
         events = new ArrayList<>();
         setPreferredSize(new Dimension(width, height));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -71,13 +73,15 @@ public class CalendarDayPanel extends JPanel
         drawEvents();
     }
 
+    // draw events on the Calendar Day
     public void drawEvents()
     {
         eventsPanelHolder.removeAll();
         for (Event event: events)
         {
-            String eventType = event.getClass().toString().split(" ")[1];
+            String eventType = event.getClass().toString().split(" ")[1]; // get class name to determine type
             Color color;
+            // set background color based on event type
             if (eventType.equals("Deadline"))
             {
                 color = new Color(242, 139, 130);
@@ -89,6 +93,7 @@ public class CalendarDayPanel extends JPanel
             else{
                 color = Color.white;
             }
+
             JPanel eventsHolder = new JPanel();
             eventsHolder.add(new JLabel(event.getName()));
             eventsHolder.add(new JLabel(event.dateTime.toString()));
@@ -99,11 +104,13 @@ public class CalendarDayPanel extends JPanel
         }
     }
 
+    // add a listener to list of listeners
     public void addListener(CalendarDayListener listener)
     {
         listeners.add(listener);
     }
 
+    // notify listeners when the panel is clicked
     public void notifyListenersOnClick()
     {
         for (CalendarDayListener listener: listeners)

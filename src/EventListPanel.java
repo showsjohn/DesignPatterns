@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+// Class to display detailed event information to the screen
 public class EventListPanel extends JPanel implements CalendarDayListener
 {
     JPanel eventPanelHolder;

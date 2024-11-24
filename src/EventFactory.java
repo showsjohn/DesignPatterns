@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+// Factory class to create multiple eventTypes
 public class EventFactory {
 
     public static Event createEvent(String name, String location, LocalDateTime dateTime)

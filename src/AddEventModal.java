@@ -29,10 +29,12 @@ public class AddEventModal extends JDialog
         setSize(new Dimension(300,275));
         setLocation(ScreenSize.getCenter().x-150, ScreenSize.getCenter().y - 180 );
 
+        // panels to hold each group of data input components
         beginPanel = new JPanel();
         endPanel = new JPanel();
         textPanel = new JPanel();
 
+        // label and textfield for the name and location data
         JLabel nameLabel = new JLabel("Name: ");
         JTextField name = new JTextField();
         JLabel locationLabel = new JLabel("Location: ");
@@ -44,11 +46,13 @@ public class AddEventModal extends JDialog
         textPanel.add(locationLabel);
         textPanel.add(location);
 
+        // Spinners for the beginning and end time for the event
         beginHourSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 23, 1 ));
         beginMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
         endHourSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 23, 1 ));
         endMinuteSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 59, 1 ));
 
+        //********* add components to their respective panels *******
         beginPanel.add(new JLabel("Beginning time: "));
         beginPanel.add(beginHourSpinner);
         beginPanel.add(new JLabel(" : "));
@@ -60,10 +64,13 @@ public class AddEventModal extends JDialog
         endPanel.add(new JLabel(" : "));
         endPanel.add(endMinuteSpinner);
         endPanel.add(new JLabel("  "));
+        //**************************************************************
 
         eventType = new JComboBox<String>(new String[] {"Meeting", "Deadline"});
 
+        // Submit button
         submit = new JButton("Submit");
+        // on submit, create new event with the data input by the user
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,6 +89,7 @@ public class AddEventModal extends JDialog
             }
         });
 
+        // add all subpanels to the JDialog parent
         add(textPanel);
         add(beginPanel);
         add(endPanel);
@@ -91,6 +99,7 @@ public class AddEventModal extends JDialog
         repaint();
     }
 
+    // method to return the Event created
     public Event getData()
     {
         if (event!= null)
